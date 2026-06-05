@@ -39,3 +39,29 @@ background:#222;
 padding:20px;
 text-align:center;
 }
+
+.button{
+display:inline-block;
+background:#2563eb;
+color:white;
+padding:12px 24px;
+border-radius:8px;
+text-decoration:none;
+margin:10px;
+font-weight:bold;
+}
+
+.button:hover{
+background:#1d4ed8;
+}
+
+.hero{
+background:linear-gradient(135deg,#1e3a8a,#2563eb);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+.hero h2{
+font-size:42px;
+}

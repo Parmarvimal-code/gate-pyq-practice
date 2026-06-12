@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Digital Logic Design - PracticePaper</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+header{
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    color:#007bff;
+}
+
+.question-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.option{
+    border:1px solid #ccc;
+    padding:15px;
+    margin-top:10px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:#f1f1f1;
+}
+
+.option.selected{
+    background:#007bff;
+    color:white;
+}
+
+button{
+    margin-top:15px;
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#result{
+    margin-top:15px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.score-box{
+    margin-top:15px;
+    font-size:18px;
+}
+
+textarea{
+    width:100%;
+    margin-top:15px;
+    padding:10px;
+    border-radius:5px;
+}
+
+.comment{
+    background:#eef5ff;
+    border-left:5px solid #007bff;
+    padding:10px;
+    margin-top:10px;
+}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>PracticePaper</h1>
+<h2>Digital Logic Design</h2>
+</header>
+
+<div class="question-box">
+
+<h3>Question 1 (MSQ | 1 Mark)</h3>
+
+<p>
+In a system, numbers are represented using 4-bit two's complement form.
+Consider four numbers:
+<br><br>
+
+N1 = 1011<br>
+N2 = 1101<br>
+N3 = 1010<br>
+N4 = 1001
+<br><br>
+
+Which of the following operations will result in arithmetic overflow?
+</p>
+
+<div class="option" data-answer="A">
+A) N1 + N2
+</div>
+
+<div class="option" data-answer="B">
+B) N2 + N3
+</div>
+
+<div class="option" data-answer="C">
+C) N3 − N4
+</div>
+
+<div class="option" data-answer="D">
+D) N1 + N4
+</div>
+
+<button onclick="checkAnswer()">
+Check Answer
+</button>
+
+<div id="result"></div>
+
+<div class="score-box">
+Marks: <span id="score">0</span>/1
+</div>
+
+<hr>
+
+<h3>Comment Your Answer</h3>
+
+<textarea
+id="commentText"
+rows="4"
+placeholder="Write your answer or comment here...">
+</textarea>
+
+<br>
+
+<button onclick="addComment()">
+Post Comment
+</button>
+
+<div id="comments"></div>
+
+</div>
+
+<footer>
+<p>© 2026 PracticePaper | GATE CSE Preparation</p>
+</footer>
+
+<script>
+
+let score = 0;
+
+const options =
+document.querySelectorAll(".option");
+
+options.forEach(option=>{
+
+option.addEventListener("click",()=>{
+
+option.classList.toggle("selected");
+
+});
+
+});
+
+function checkAnswer(){
+
+let selected=[];
+
+document.querySelectorAll(".selected")
+.forEach(item=>{
+
+selected.push(
+item.getAttribute("data-answer")
+);
+
+});
+
+selected.sort();
+
+let correct=["B","D"];
+
+if(
+JSON.stringify(selected)
+===
+JSON.stringify(correct)
+){
+
+document.getElementById("result")
+.innerHTML=
+"✅ Correct Answer";
+
+score=1;
+
+}else{
+
+document.getElementById("result")
+.innerHTML=
+"❌ Wrong Answer";
+
+score=0;
+}
+
+document.getElementById("score")
+.innerHTML=score;
+
+}
+
+function addComment(){
+
+let text=
+document.getElementById("commentText")
+.value;
+
+if(text.trim()=="") return;
+
+let div=document.createElement("div");
+
+div.className="comment";
+
+div.innerHTML=text;
+
+document.getElementById("comments")
+.prepend(div);
+
+document.getElementById("commentText")
+.value="";
+
+}
+
+</script>
+
+</body>
+</html>

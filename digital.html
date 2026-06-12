@@ -7,24 +7,27 @@
 <title>Digital Logic - PracticePaper</title>
 
 <style>
+
 body{
     font-family:Arial,sans-serif;
     background:#f5f7fb;
     max-width:1000px;
     margin:auto;
     padding:20px;
+    line-height:1.7;
 }
 
 h1,h2{
     text-align:center;
+    color:#007bff;
 }
 
 .question-box{
-    background:#fff;
+    background:white;
     padding:20px;
     margin:20px 0;
     border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,.1);
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
 .option{
@@ -33,6 +36,11 @@ h1,h2{
     margin:8px 0;
     border-radius:8px;
     cursor:pointer;
+    transition:.3s;
+}
+
+.option:hover{
+    background:#f1f1f1;
 }
 
 .option.selected{
@@ -45,20 +53,46 @@ button{
     color:white;
     border:none;
     padding:10px 20px;
-    margin-top:10px;
     border-radius:5px;
     cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+    opacity:.9;
 }
 
 .result{
     margin-top:15px;
-    line-height:1.8;
+    padding:10px;
+    background:#eef5ff;
+    border-left:5px solid #007bff;
+}
+
+.theory{
+    background:#fff8dc;
+    border-left:5px solid orange;
+    padding:15px;
+    margin-top:15px;
 }
 
 textarea{
     width:100%;
     padding:10px;
 }
+
+.comment{
+    background:#eef5ff;
+    padding:10px;
+    margin-top:10px;
+    border-left:5px solid #007bff;
+}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+}
+
 </style>
 </head>
 <body>
@@ -73,14 +107,25 @@ textarea{
 <h3>Question 1 (MSQ | 1 Mark)</h3>
 
 <p>
-In a system, numbers are represented using 4-bit two's complement form.
+In a system, numbers are represented using
+4-bit two's complement form.
+
 Consider four numbers:
 
 <br><br>
 
-N1 = 1011<br>
-N2 = 1101<br>
-N3 = 1010<br>
+N1 = 1011
+
+<br>
+
+N2 = 1101
+
+<br>
+
+N3 = 1010
+
+<br>
+
 N4 = 1001
 
 <br><br>
@@ -88,14 +133,48 @@ N4 = 1001
 Which operations result in arithmetic overflow?
 </p>
 
-<div class="option q1" data-answer="A">A) N1 + N2</div>
-<div class="option q1" data-answer="B">B) N2 + N3</div>
-<div class="option q1" data-answer="C">C) N3 − N4</div>
-<div class="option q1" data-answer="D">D) N1 + N4</div>
+<div class="option q1" data-answer="A">
+A) N1 + N2
+</div>
 
-<button onclick="checkQ1()">Check Answer</button>
+<div class="option q1" data-answer="B">
+B) N2 + N3
+</div>
+
+<div class="option q1" data-answer="C">
+C) N3 − N4
+</div>
+
+<div class="option q1" data-answer="D">
+D) N1 + N4
+</div>
+
+<button onclick="checkQ1()">
+Check Answer
+</button>
 
 <div id="result1" class="result"></div>
+
+<div class="theory">
+
+<h4>Concept</h4>
+
+Arithmetic overflow occurs when the result
+goes outside the representable range.
+
+For 4-bit two's complement:
+
+<br><br>
+
+Range = -8 to +7
+
+<br><br>
+
+If result becomes less than -8
+or greater than +7,
+overflow occurs.
+
+</div>
 
 </div>
 
@@ -106,20 +185,70 @@ Which operations result in arithmetic overflow?
 <h3>Question 2 (NAT | 1 Mark)</h3>
 
 <p>
-The 32-bit IEEE 754 single precision representation of a number is
-<b>0xC2710000</b>.
 
-The number in decimal representation is ______
-(rounded off to two decimal places).
+The 32-bit IEEE 754 single precision
+representation of a number is
+
+<b>0xC2710000</b>
+
+<br><br>
+
+The decimal value is _______
+(round off to two decimal places)
+
 </p>
 
-<input type="text" id="natAnswer">
+<input type="text"
+id="natAnswer"
+placeholder="Enter answer">
 
 <br>
 
-<button onclick="checkQ2()">Check Answer</button>
+<button onclick="checkQ2()">
+Check Answer
+</button>
 
 <div id="result2" class="result"></div>
+
+<div class="theory">
+
+<h4>Concept</h4>
+
+IEEE 754 Single Precision Format
+
+<br><br>
+
+1 bit = Sign
+
+<br>
+
+8 bits = Exponent
+
+<br>
+
+23 bits = Mantissa
+
+<br><br>
+
+Formula:
+
+<br>
+
+Value
+
+=
+
+(-1)^Sign
+
+×
+
+Mantissa
+
+×
+
+2^(Exponent-127)
+
+</div>
 
 </div>
 
@@ -127,18 +256,37 @@ The number in decimal representation is ______
 
 <div class="question-box">
 
-<h3>Comment Your Answer</h3>
+<h3>Discussion & Comments</h3>
 
-<textarea id="commentBox"></textarea>
+<textarea
+id="commentBox"
+rows="4"
+placeholder="Write your answer, doubt or discussion...">
+</textarea>
 
 <br>
 
-<button onclick="postComment()">Post Comment</button>
+<button onclick="postComment()">
+Post Comment
+</button>
 
 <div id="comments"></div>
 
 </div>
 
+<footer>
+
+<p>
+© 2027 PracticePaper
+</p>
+
+<p>
+Made for GATE Aspirants ❤️
+</p>
+
+</footer>
+```
+```html
 <script>
 
 /* QUESTION 1 */
@@ -171,15 +319,17 @@ let correct=["B","D"];
 if(JSON.stringify(selected)===JSON.stringify(correct)){
 
 document.getElementById("result1").innerHTML=`
+
 ✅ Correct Answer
 
 <br><br>
 
-Marks: 1/1
+🎯 Marks: 1/1
 
 <br><br>
 
 Correct Answer: B and D
+
 `;
 
 }else{
@@ -190,7 +340,7 @@ document.getElementById("result1").innerHTML=`
 
 <br><br>
 
-Marks: 0/1
+🎯 Marks: 0/1
 
 <br><br>
 
@@ -198,43 +348,55 @@ Marks: 0/1
 
 <br><br>
 
-<b>Solution:</b>
+<b>Detailed Solution</b>
 
 <br><br>
 
-N1 = -5
+N1 = 1011 = -5
 
 <br>
 
-N2 = -3
+N2 = 1101 = -3
 
 <br>
 
-N3 = -6
+N3 = 1010 = -6
 
 <br>
 
-N4 = -7
+N4 = 1001 = -7
 
 <br><br>
 
-Range = -8 to +7
+Range of 4-bit two's complement
+
+<br>
+
+= -8 to +7
 
 <br><br>
 
-A) -5 + (-3) = -8 → No Overflow
+A) -5 + (-3) = -8
 
-<br>
+→ No Overflow
 
-B) -3 + (-6) = -9 → Overflow ✅
+<br><br>
 
-<br>
+B) -3 + (-6) = -9
 
-C) -6 - (-7) = 1 → No Overflow
+→ Overflow ✅
 
-<br>
+<br><br>
 
-D) -5 + (-7) = -12 → Overflow ✅
+C) -6 - (-7) = 1
+
+→ No Overflow
+
+<br><br>
+
+D) -5 + (-7) = -12
+
+→ Overflow ✅
 
 `;
 
@@ -246,10 +408,9 @@ D) -5 + (-7) = -12 → Overflow ✅
 
 function checkQ2(){
 
-let ans=document
-.getElementById("natAnswer")
-.value
-.trim();
+let ans=
+document.getElementById("natAnswer")
+.value.trim();
 
 if(ans=="-60.25"){
 
@@ -259,7 +420,7 @@ document.getElementById("result2").innerHTML=`
 
 <br><br>
 
-Marks: 1/1
+🎯 Marks: 1/1
 
 `;
 
@@ -271,7 +432,7 @@ document.getElementById("result2").innerHTML=`
 
 <br><br>
 
-Marks: 0/1
+🎯 Marks: 0/1
 
 <br><br>
 
@@ -279,25 +440,45 @@ Marks: 0/1
 
 <br><br>
 
-<b>Solution:</b>
+<b>Detailed Solution</b>
 
 <br><br>
 
-Sign Bit = 1 → Negative
+Hexadecimal:
+
+0xC2710000
+
+<br><br>
+
+Binary:
+
+11000010 01110001 00000000 00000000
+
+<br><br>
+
+Sign Bit = 1
+
+→ Negative Number
 
 <br><br>
 
 Exponent = 10000100₂
 
-<br>
-
-132 − 127 = 5
+= 132
 
 <br><br>
 
-Mantissa = 1.1110001₂
+Actual Exponent
 
-<br>
+= 132 − 127
+
+= 5
+
+<br><br>
+
+Mantissa
+
+= 1.1110001₂
 
 = 1.8828125
 
@@ -305,9 +486,11 @@ Mantissa = 1.1110001₂
 
 Value
 
+= -(1.8828125 × 2⁵)
+
 <br>
 
-= -(1.8828125 × 2⁵)
+= -(1.8828125 × 32)
 
 <br>
 
@@ -319,32 +502,113 @@ Value
 
 }
 
-/* COMMENTS */
+</script>
 
-function postComment(){
+<script type="module">
 
-let text=
-document.getElementById("commentBox").value;
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
-if(text.trim()=="") return;
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs
+}
+from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
-let div=document.createElement("div");
+const firebaseConfig = {
 
-div.style.marginTop="10px";
-div.style.padding="10px";
-div.style.background="#eef5ff";
+apiKey: "AIzaSyDGuSVdCBayfGlXCUxa9i0ect_KiQvy0TM",
 
-div.innerHTML=text;
+authDomain:
+"gate-pyq-practice.firebaseapp.com",
 
-document
-.getElementById("comments")
-.prepend(div);
+projectId:
+"gate-pyq-practice",
+
+storageBucket:
+"gate-pyq-practice.firebasestorage.app",
+
+messagingSenderId:
+"894240086322",
+
+appId:
+"1:894240086322:web:2a6dd4a3a4e503f715df2b",
+
+measurementId:
+"G-JH8SWT6JWZ"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+window.postComment =
+async function(){
+
+let text =
+document.getElementById("commentBox")
+.value;
+
+if(text.trim()=="")
+return;
+
+await addDoc(
+
+collection(db,"comments"),
+
+{
+message:text,
+time:Date.now()
+}
+
+);
 
 document
 .getElementById("commentBox")
 .value="";
 
+loadComments();
+
 }
+
+async function loadComments(){
+
+const commentsDiv =
+document.getElementById("comments");
+
+commentsDiv.innerHTML =
+"Loading comments...";
+
+const snapshot =
+await getDocs(
+collection(db,"comments")
+);
+
+commentsDiv.innerHTML="";
+
+snapshot.forEach(doc=>{
+
+let div =
+document.createElement("div");
+
+div.className =
+"comment";
+
+div.innerHTML =
+doc.data().message;
+
+commentsDiv.prepend(div);
+
+});
+
+}
+
+loadComments();
 
 </script>
 

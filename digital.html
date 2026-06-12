@@ -4,46 +4,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Logic Design - PracticePaper</title>
+<title>Digital Logic - PracticePaper</title>
 
 <style>
-
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#f5f7fb;
     max-width:1000px;
     margin:auto;
     padding:20px;
-    line-height:1.6;
 }
 
-header{
+h1,h2{
     text-align:center;
-    padding:20px;
-}
-
-h1{
-    color:#007bff;
 }
 
 .question-box{
-    background:white;
+    background:#fff;
     padding:20px;
-    margin-bottom:25px;
+    margin:20px 0;
     border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
 
 .option{
     border:1px solid #ccc;
-    padding:15px;
-    margin-top:10px;
+    padding:12px;
+    margin:8px 0;
     border-radius:8px;
     cursor:pointer;
-}
-
-.option:hover{
-    background:#f1f1f1;
 }
 
 .option.selected{
@@ -52,57 +41,32 @@ h1{
 }
 
 button{
-    margin-top:15px;
     background:#007bff;
     color:white;
     border:none;
-    padding:12px 20px;
+    padding:10px 20px;
+    margin-top:10px;
     border-radius:5px;
     cursor:pointer;
 }
 
-button:hover{
-    opacity:0.9;
-}
-
 .result{
     margin-top:15px;
-    font-size:17px;
-}
-
-.comment{
-    background:#eef5ff;
-    border-left:5px solid #007bff;
-    padding:10px;
-    margin-top:10px;
+    line-height:1.8;
 }
 
 textarea{
     width:100%;
     padding:10px;
-    margin-top:10px;
 }
-
-input[type=number]{
-    padding:10px;
-    width:250px;
-}
-
-footer{
-    text-align:center;
-    margin-top:30px;
-}
-
 </style>
 </head>
 <body>
 
-<header>
 <h1>🎓 PracticePaper</h1>
 <h2>Digital Logic Design</h2>
-</header>
 
-<!-- Question 1 -->
+<!-- QUESTION 1 -->
 
 <div class="question-box">
 
@@ -111,15 +75,17 @@ footer{
 <p>
 In a system, numbers are represented using 4-bit two's complement form.
 Consider four numbers:
+
 <br><br>
 
 N1 = 1011<br>
 N2 = 1101<br>
 N3 = 1010<br>
 N4 = 1001
+
 <br><br>
 
-Which of the following operations will result in arithmetic overflow?
+Which operations result in arithmetic overflow?
 </p>
 
 <div class="option q1" data-answer="A">A) N1 + N2</div>
@@ -133,7 +99,7 @@ Which of the following operations will result in arithmetic overflow?
 
 </div>
 
-<!-- Question 2 -->
+<!-- QUESTION 2 -->
 
 <div class="question-box">
 
@@ -142,11 +108,12 @@ Which of the following operations will result in arithmetic overflow?
 <p>
 The 32-bit IEEE 754 single precision representation of a number is
 <b>0xC2710000</b>.
-The number in decimal representation is ________
+
+The number in decimal representation is ______
 (rounded off to two decimal places).
 </p>
 
-<input type="number" step="0.01" id="natAnswer">
+<input type="text" id="natAnswer">
 
 <br>
 
@@ -156,28 +123,25 @@ The number in decimal representation is ________
 
 </div>
 
-<!-- Comments -->
+<!-- COMMENTS -->
 
 <div class="question-box">
 
 <h3>Comment Your Answer</h3>
 
-<textarea id="commentText" rows="4"
-placeholder="Write your answer or comment here..."></textarea>
+<textarea id="commentBox"></textarea>
 
-<button onclick="addComment()">Post Comment</button>
+<br>
+
+<button onclick="postComment()">Post Comment</button>
 
 <div id="comments"></div>
 
 </div>
 
-<footer>
-<p>© 2027 PracticePaper | GATE CSE Preparation</p>
-</footer>
-
 <script>
 
-/* Question 1 */
+/* QUESTION 1 */
 
 document.querySelectorAll(".q1").forEach(option=>{
 
@@ -215,7 +179,7 @@ Marks: 1/1
 
 <br><br>
 
-Correct Answer: B, D
+Correct Answer: B and D
 `;
 
 }else{
@@ -230,7 +194,7 @@ Marks: 0/1
 
 <br><br>
 
-✅ Correct Answer: B, D
+✅ Correct Answer: B and D
 
 <br><br>
 
@@ -278,15 +242,16 @@ D) -5 + (-7) = -12 → Overflow ✅
 
 }
 
-/* Question 2 */
+/* QUESTION 2 */
 
 function checkQ2(){
 
-let ans=parseFloat(
-document.getElementById("natAnswer").value
-);
+let ans=document
+.getElementById("natAnswer")
+.value
+.trim();
 
-if(ans===-60.25){
+if(ans=="-60.25"){
 
 document.getElementById("result2").innerHTML=`
 
@@ -318,33 +283,21 @@ Marks: 0/1
 
 <br><br>
 
-0xC2710000
-
-<br><br>
-
-Binary:
-
-11000010 01110001 00000000 00000000
-
-<br><br>
-
-Sign Bit = 1
-
-→ Negative Number
+Sign Bit = 1 → Negative
 
 <br><br>
 
 Exponent = 10000100₂
 
-= 132
-
 <br>
 
-Actual Exponent = 132 - 127 = 5
+132 − 127 = 5
 
 <br><br>
 
 Mantissa = 1.1110001₂
+
+<br>
 
 = 1.8828125
 
@@ -352,11 +305,9 @@ Mantissa = 1.1110001₂
 
 Value
 
-= -(1.8828125 × 2⁵)
-
 <br>
 
-= -(1.8828125 × 32)
+= -(1.8828125 × 2⁵)
 
 <br>
 
@@ -368,25 +319,30 @@ Value
 
 }
 
-/* Comments */
+/* COMMENTS */
 
-function addComment(){
+function postComment(){
 
 let text=
-document.getElementById("commentText").value;
+document.getElementById("commentBox").value;
 
 if(text.trim()=="") return;
 
 let div=document.createElement("div");
 
-div.className="comment";
+div.style.marginTop="10px";
+div.style.padding="10px";
+div.style.background="#eef5ff";
 
 div.innerHTML=text;
 
-document.getElementById("comments")
+document
+.getElementById("comments")
 .prepend(div);
 
-document.getElementById("commentText").value="";
+document
+.getElementById("commentBox")
+.value="";
 
 }
 

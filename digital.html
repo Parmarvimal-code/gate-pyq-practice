@@ -9,88 +9,81 @@
 <style>
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f5f7fb;
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-    line-height:1.7;
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7;
 }
 
 h1,h2{
-    text-align:center;
-    color:#007bff;
+text-align:center;
+color:#007bff;
 }
 
 .question-box{
-    background:white;
-    padding:20px;
-    margin:20px 0;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+background:white;
+padding:20px;
+margin:20px 0;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.question-meta{
+background:#e8f0ff;
+padding:10px;
+border-left:5px solid #007bff;
+font-weight:bold;
+margin-bottom:10px;
 }
 
 .option{
-    border:1px solid #ccc;
-    padding:12px;
-    margin:8px 0;
-    border-radius:8px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.option:hover{
-    background:#f1f1f1;
+border:1px solid #ccc;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+cursor:pointer;
 }
 
 .option.selected{
-    background:#007bff;
-    color:white;
+background:#007bff;
+color:white;
 }
 
 button{
-    background:#007bff;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:5px;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-button:hover{
-    opacity:.9;
+background:#007bff;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
 }
 
 .result{
-    margin-top:15px;
-    padding:10px;
-    background:#eef5ff;
-    border-left:5px solid #007bff;
+margin-top:15px;
+padding:10px;
+background:#eef5ff;
+border-left:5px solid #007bff;
 }
 
 .theory{
-    background:#fff8dc;
-    border-left:5px solid orange;
-    padding:15px;
-    margin-top:15px;
+background:#fff8dc;
+border-left:5px solid orange;
+padding:15px;
+margin-top:15px;
 }
 
 textarea{
-    width:100%;
-    padding:10px;
+width:100%;
+padding:10px;
 }
 
 .comment{
-    background:#eef5ff;
-    padding:10px;
-    margin-top:10px;
-    border-left:5px solid #007bff;
-}
-
-footer{
-    text-align:center;
-    margin-top:30px;
+background:#eef5ff;
+padding:10px;
+margin-top:10px;
+border-left:5px solid #007bff;
 }
 
 </style>
@@ -104,77 +97,26 @@ footer{
 
 <div class="question-box">
 
-<h3>Question 1 (MSQ | 1 Mark)</h3>
+<div class="question-meta">
+📅 GATE CSE 2026 | Digital Logic | MSQ | 1 Mark
+</div>
+
+<h3>Question 1</h3>
 
 <p>
-In a system, numbers are represented using
-4-bit two's complement form.
-
-Consider four numbers:
-
-<br><br>
-
-N1 = 1011
-
-<br>
-
-N2 = 1101
-
-<br>
-
-N3 = 1010
-
-<br>
-
-N4 = 1001
-
-<br><br>
-
+In a system, numbers are represented using 4-bit two's complement form.
+N1=1011, N2=1101, N3=1010, N4=1001.
 Which operations result in arithmetic overflow?
 </p>
 
-<div class="option q1" data-answer="A">
-A) N1 + N2
-</div>
+<div class="option q1" data-answer="A">A) N1 + N2</div>
+<div class="option q1" data-answer="B">B) N2 + N3</div>
+<div class="option q1" data-answer="C">C) N3 − N4</div>
+<div class="option q1" data-answer="D">D) N1 + N4</div>
 
-<div class="option q1" data-answer="B">
-B) N2 + N3
-</div>
-
-<div class="option q1" data-answer="C">
-C) N3 − N4
-</div>
-
-<div class="option q1" data-answer="D">
-D) N1 + N4
-</div>
-
-<button onclick="checkQ1()">
-Check Answer
-</button>
+<button onclick="checkQ1()">Check Answer</button>
 
 <div id="result1" class="result"></div>
-
-<div class="theory">
-
-<h4>Concept</h4>
-
-Arithmetic overflow occurs when the result
-goes outside the representable range.
-
-For 4-bit two's complement:
-
-<br><br>
-
-Range = -8 to +7
-
-<br><br>
-
-If result becomes less than -8
-or greater than +7,
-overflow occurs.
-
-</div>
 
 </div>
 
@@ -182,93 +124,42 @@ overflow occurs.
 
 <div class="question-box">
 
-<h3>Question 2 (NAT | 1 Mark)</h3>
+<div class="question-meta">
+📅 GATE CSE 2026 | Digital Logic | NAT | 1 Mark
+</div>
+
+<h3>Question 2</h3>
 
 <p>
-
-The 32-bit IEEE 754 single precision
-representation of a number is
-
+IEEE 754 single precision representation:
 <b>0xC2710000</b>
 
 <br><br>
 
-The decimal value is _______
-(round off to two decimal places)
-
+Decimal value = ?
 </p>
 
-<input type="text"
-id="natAnswer"
-placeholder="Enter answer">
+<input type="text" id="natAnswer">
 
-<br>
+<br><br>
 
-<button onclick="checkQ2()">
-Check Answer
-</button>
+<button onclick="checkQ2()">Check Answer</button>
 
 <div id="result2" class="result"></div>
 
-<div class="theory">
-
-<h4>Concept</h4>
-
-IEEE 754 Single Precision Format
-
-<br><br>
-
-1 bit = Sign
-
-<br>
-
-8 bits = Exponent
-
-<br>
-
-23 bits = Mantissa
-
-<br><br>
-
-Formula:
-
-<br>
-
-Value
-
-=
-
-(-1)^Sign
-
-×
-
-Mantissa
-
-×
-
-2^(Exponent-127)
-
 </div>
 
-</div>
-
-    ```html
 <!-- QUESTION 3 -->
 
 <div class="question-box">
 
 <div class="question-meta">
-📅 GATE CSE 2026 | SET 1 | Digital Logic | MCQ | 2 Marks
+📅 GATE CSE 2026 | Digital Logic | MCQ | 2 Marks
 </div>
 
-<h3>Question 3 (MCQ | 2 Marks)</h3>
+<h3>Question 3</h3>
 
 <p>
-
-Consider the real valued variables X, Y and Z represented using the IEEE 754 single precision floating-point format.
-
-<br><br>
-
 X = 35C00000
 
 <br>
@@ -277,71 +168,206 @@ Y = 34400000
 
 <br><br>
 
-Let Z = X + Y.
-
-<br><br>
-
-Which one of the following is the binary representation of Z, in hexadecimal notation?
-
+If Z = X + Y, choose correct hexadecimal representation.
 </p>
 
-<div class="option q3" data-answer="A">
-A) 35C80000
-</div>
+<div class="option q3" data-answer="A">35C80000</div>
+<div class="option q3" data-answer="B">35CC0000</div>
+<div class="option q3" data-answer="C">35E80000</div>
+<div class="option q3" data-answer="D">35EC0000</div>
 
-<div class="option q3" data-answer="B">
-B) 35CC0000
-</div>
-
-<div class="option q3" data-answer="C">
-C) 35E80000
-</div>
-
-<div class="option q3" data-answer="D">
-D) 35EC0000
-</div>
-
-<button onclick="checkQ3()">
-Check Answer
-</button>
+<button onclick="checkQ3()">Check Answer</button>
 
 <div id="result3" class="result"></div>
 
-<div class="theory">
+</div>
 
-<h4>Concept</h4>
+<!-- QUESTION 4 -->
 
-IEEE 754 Floating Point Addition
+<div class="question-box">
+
+<div class="question-meta">
+📅 GATE CSE 2026 | Digital Logic | MSQ | 1 Mark
+</div>
+
+<h3>Question 4</h3>
+
+<p>
+X = 10110100
+
+<br>
+
+Y = 01001100
 
 <br><br>
 
-1. Align exponents
+Which operations result in overflow?
+</p>
 
-<br>
+<div class="option q4" data-answer="A">A) X + Y</div>
+<div class="option q4" data-answer="B">B) X - Y</div>
+<div class="option q4" data-answer="C">C) -X + Y</div>
+<div class="option q4" data-answer="D">D) -X - Y</div>
 
-2. Shift mantissa
+<button onclick="checkQ4()">Check Answer</button>
 
-<br>
-
-3. Add mantissas
-
-<br>
-
-4. Normalize result
-
-<br>
-
-5. Round mantissa
-
-<br>
-
-6. Convert back to IEEE format
+<div id="result4" class="result"></div>
 
 </div>
+
+<!-- COMMENTS -->
+
+<div class="question-box">
+
+<h3>Discussion & Comments</h3>
+
+<textarea id="commentBox"></textarea>
+
+<br><br>
+
+<button onclick="postComment()">
+Post Comment
+</button>
+
+<div id="comments"></div>
 
 </div>
 ```
-```javascript
+```html
+<script>
+
+/* QUESTION 1 */
+
+document.querySelectorAll(".q1").forEach(option=>{
+option.addEventListener("click",()=>{
+option.classList.toggle("selected");
+});
+});
+
+function checkQ1(){
+
+let selected=[];
+
+document.querySelectorAll(".q1.selected")
+.forEach(item=>{
+selected.push(item.dataset.answer);
+});
+
+selected.sort();
+
+let correct=["B","D"];
+
+if(JSON.stringify(selected)===JSON.stringify(correct)){
+
+document.getElementById("result1").innerHTML=`
+✅ Correct Answer
+<br><br>
+🎯 Marks: 1/1
+<br><br>
+Correct Answer: B and D
+`;
+
+}else{
+
+document.getElementById("result1").innerHTML=`
+❌ Wrong Answer
+<br><br>
+🎯 Marks: 0/1
+<br><br>
+✅ Correct Answer: B and D
+<br><br>
+N1=-5, N2=-3, N3=-6, N4=-7
+<br><br>
+Overflow occurs in B and D.
+`;
+
+}
+
+}
+
+/* QUESTION 2 */
+
+function checkQ2(){
+
+let ans=
+document.getElementById("natAnswer")
+.value.trim();
+
+if(ans=="-60.25"){
+
+document.getElementById("result2").innerHTML=`
+✅ Correct Answer
+<br><br>
+🎯 Marks: 1/1
+`;
+
+}else{
+
+document.getElementById("result2").innerHTML=`
+❌ Wrong Answer
+<br><br>
+🎯 Marks: 0/1
+<br><br>
+✅ Correct Answer: -60.25
+`;
+
+}
+
+}
+
+/* QUESTION 3 */
+
+document.querySelectorAll(".q3").forEach(option=>{
+
+option.addEventListener("click",()=>{
+
+document.querySelectorAll(".q3")
+.forEach(x=>x.classList.remove("selected"));
+
+option.classList.add("selected");
+
+});
+
+});
+
+function checkQ3(){
+
+let selected=
+document.querySelector(".q3.selected");
+
+if(!selected){
+
+document.getElementById("result3")
+.innerHTML="Select an option";
+
+return;
+
+}
+
+if(selected.dataset.answer=="B"){
+
+document.getElementById("result3").innerHTML=`
+✅ Correct Answer
+<br><br>
+🎯 Marks: 2/2
+<br><br>
+Correct Answer: 35CC0000
+`;
+
+}else{
+
+document.getElementById("result3").innerHTML=`
+❌ Wrong Answer
+<br><br>
+🎯 Marks: 0/2
+<br><br>
+✅ Correct Answer: 35CC0000
+`;
+
+}
+
+}
+
 /* QUESTION 4 */
 
 document.querySelectorAll(".q4").forEach(option=>{
@@ -372,369 +398,21 @@ let correct=["B","C"];
 if(JSON.stringify(selected)===JSON.stringify(correct)){
 
 document.getElementById("result4").innerHTML=`
-
 ✅ Correct Answer
-
 <br><br>
-
 🎯 Marks: 1/1
-
 <br><br>
-
 Correct Answer: B and C
-
 `;
 
 }else{
 
 document.getElementById("result4").innerHTML=`
-
 ❌ Wrong Answer
-
 <br><br>
-
 🎯 Marks: 0/1
-
 <br><br>
-
 ✅ Correct Answer: B and C
-
-<br><br>
-
-<b>Detailed Solution</b>
-
-<br><br>
-
-X = 10110100
-
-<br>
-
-= -52
-
-<br><br>
-
-Y = 01001100
-
-<br>
-
-= +76
-
-<br><br>
-
-A) Z = X + Y
-
-<br>
-
-= -52 + 76
-
-<br>
-
-= 24
-
-<br>
-
-→ No Overflow
-
-<br><br>
-
-B) Z = X - Y
-
-<br>
-
-= -52 - 76
-
-<br>
-
-= -128
-
-<br>
-
-→ Overflow ✅
-
-<br><br>
-
-C) Z = -X + Y
-
-<br>
-
-= 52 + 76
-
-<br>
-
-= 128
-
-<br>
-
-→ Overflow ✅
-
-<br><br>
-
-D) Z = -X - Y
-
-<br>
-
-= 52 - 76
-
-<br>
-
-= -24
-
-<br>
-
-→ No Overflow
-
-`;
-
-}
-
-}
-```
-
-
-<!-- COMMENTS -->
-
-<div class="question-box">
-
-<h3>Discussion & Comments</h3>
-
-<textarea
-id="commentBox"
-rows="4"
-placeholder="Write your answer, doubt or discussion...">
-</textarea>
-
-<br>
-
-<button onclick="postComment()">
-Post Comment
-</button>
-
-<div id="comments"></div>
-
-</div>
-
-<footer>
-
-<p>
-© 2027 PracticePaper
-</p>
-
-<p>
-Made for GATE Aspirants ❤️
-</p>
-
-</footer>
-```
-```html
-<script>
-
-/* QUESTION 1 */
-
-document.querySelectorAll(".q1").forEach(option=>{
-
-option.addEventListener("click",()=>{
-
-option.classList.toggle("selected");
-
-});
-
-});
-
-function checkQ1(){
-
-let selected=[];
-
-document.querySelectorAll(".q1.selected")
-.forEach(item=>{
-
-selected.push(item.dataset.answer);
-
-});
-
-selected.sort();
-
-let correct=["B","D"];
-
-if(JSON.stringify(selected)===JSON.stringify(correct)){
-
-document.getElementById("result1").innerHTML=`
-
-✅ Correct Answer
-
-<br><br>
-
-🎯 Marks: 1/1
-
-<br><br>
-
-Correct Answer: B and D
-
-`;
-
-}else{
-
-document.getElementById("result1").innerHTML=`
-
-❌ Wrong Answer
-
-<br><br>
-
-🎯 Marks: 0/1
-
-<br><br>
-
-✅ Correct Answer: B and D
-
-<br><br>
-
-<b>Detailed Solution</b>
-
-<br><br>
-
-N1 = 1011 = -5
-
-<br>
-
-N2 = 1101 = -3
-
-<br>
-
-N3 = 1010 = -6
-
-<br>
-
-N4 = 1001 = -7
-
-<br><br>
-
-Range of 4-bit two's complement
-
-<br>
-
-= -8 to +7
-
-<br><br>
-
-A) -5 + (-3) = -8
-
-→ No Overflow
-
-<br><br>
-
-B) -3 + (-6) = -9
-
-→ Overflow ✅
-
-<br><br>
-
-C) -6 - (-7) = 1
-
-→ No Overflow
-
-<br><br>
-
-D) -5 + (-7) = -12
-
-→ Overflow ✅
-
-`;
-
-}
-
-}
-
-/* QUESTION 2 */
-
-function checkQ2(){
-
-let ans=
-document.getElementById("natAnswer")
-.value.trim();
-
-if(ans=="-60.25"){
-
-document.getElementById("result2").innerHTML=`
-
-✅ Correct Answer
-
-<br><br>
-
-🎯 Marks: 1/1
-
-`;
-
-}else{
-
-document.getElementById("result2").innerHTML=`
-
-❌ Wrong Answer
-
-<br><br>
-
-🎯 Marks: 0/1
-
-<br><br>
-
-✅ Correct Answer: -60.25
-
-<br><br>
-
-<b>Detailed Solution</b>
-
-<br><br>
-
-Hexadecimal:
-
-0xC2710000
-
-<br><br>
-
-Binary:
-
-11000010 01110001 00000000 00000000
-
-<br><br>
-
-Sign Bit = 1
-
-→ Negative Number
-
-<br><br>
-
-Exponent = 10000100₂
-
-= 132
-
-<br><br>
-
-Actual Exponent
-
-= 132 − 127
-
-= 5
-
-<br><br>
-
-Mantissa
-
-= 1.1110001₂
-
-= 1.8828125
-
-<br><br>
-
-Value
-
-= -(1.8828125 × 2⁵)
-
-<br>
-
-= -(1.8828125 × 32)
-
-<br>
-
-= -60.25
-
 `;
 
 }
@@ -758,58 +436,35 @@ from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 const firebaseConfig = {
 
-apiKey: "AIzaSyDGuSVdCBayfGlXCUxa9i0ect_KiQvy0TM",
-
-authDomain:
-"gate-pyq-practice.firebaseapp.com",
-
-projectId:
-"gate-pyq-practice",
-
-storageBucket:
-"gate-pyq-practice.firebasestorage.app",
-
-messagingSenderId:
-"894240086322",
-
-appId:
-"1:894240086322:web:2a6dd4a3a4e503f715df2b",
-
-measurementId:
-"G-JH8SWT6JWZ"
+apiKey:"AIzaSyDGuSVdCBayfGlXCUxa9i0ect_KiQvy0TM",
+authDomain:"gate-pyq-practice.firebaseapp.com",
+projectId:"gate-pyq-practice",
+storageBucket:"gate-pyq-practice.firebasestorage.app",
+messagingSenderId:"894240086322",
+appId:"1:894240086322:web:2a6dd4a3a4e503f715df2b"
 
 };
 
-const app =
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db =
-getFirestore(app);
+const db = getFirestore(app);
 
-window.postComment =
-async function(){
+window.postComment = async function(){
 
 let text =
-document.getElementById("commentBox")
-.value;
+document.getElementById("commentBox").value;
 
-if(text.trim()=="")
-return;
+if(text.trim()=="") return;
 
 await addDoc(
-
 collection(db,"comments"),
-
 {
 message:text,
 time:Date.now()
 }
-
 );
 
-document
-.getElementById("commentBox")
-.value="";
+document.getElementById("commentBox").value="";
 
 loadComments();
 
@@ -820,10 +475,10 @@ async function loadComments(){
 const commentsDiv =
 document.getElementById("comments");
 
-commentsDiv.innerHTML =
+commentsDiv.innerHTML=
 "Loading comments...";
 
-const snapshot =
+const snapshot=
 await getDocs(
 collection(db,"comments")
 );
@@ -832,13 +487,12 @@ commentsDiv.innerHTML="";
 
 snapshot.forEach(doc=>{
 
-let div =
+let div=
 document.createElement("div");
 
-div.className =
-"comment";
+div.className="comment";
 
-div.innerHTML =
+div.innerHTML=
 doc.data().message;
 
 commentsDiv.prepend(div);

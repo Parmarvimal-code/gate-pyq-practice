@@ -4,14 +4,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Digital Logic - PracticePaper</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
 font-family:Arial,sans-serif;
 background:#f5f7fb;
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:20px;
 line-height:1.7;
@@ -20,14 +27,15 @@ line-height:1.7;
 h1,h2{
 text-align:center;
 color:#007bff;
+margin-bottom:10px;
 }
 
 .question-box{
 background:white;
-padding:20px;
+padding:25px;
 margin:20px 0;
-border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
 .question-meta{
@@ -35,15 +43,21 @@ background:#e8f0ff;
 padding:10px;
 border-left:5px solid #007bff;
 font-weight:bold;
-margin-bottom:10px;
+margin-bottom:15px;
+border-radius:5px;
 }
 
 .option{
 border:1px solid #ccc;
 padding:12px;
-margin:8px 0;
+margin:10px 0;
 border-radius:8px;
 cursor:pointer;
+transition:.3s;
+}
+
+.option:hover{
+background:#f2f2f2;
 }
 
 .option.selected{
@@ -58,13 +72,19 @@ border:none;
 padding:10px 20px;
 border-radius:5px;
 cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+opacity:.9;
 }
 
 .result{
 margin-top:15px;
-padding:10px;
+padding:15px;
 background:#eef5ff;
 border-left:5px solid #007bff;
+border-radius:5px;
 }
 
 .theory{
@@ -72,11 +92,22 @@ background:#fff8dc;
 border-left:5px solid orange;
 padding:15px;
 margin-top:15px;
+border-radius:5px;
+}
+
+input[type=text]{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
 textarea{
 width:100%;
 padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
 .comment{
@@ -86,8 +117,15 @@ margin-top:10px;
 border-left:5px solid #007bff;
 }
 
+footer{
+text-align:center;
+margin-top:40px;
+padding:20px;
+}
+
 </style>
 </head>
+
 <body>
 
 <h1>🎓 PracticePaper</h1>
@@ -98,25 +136,72 @@ border-left:5px solid #007bff;
 <div class="question-box">
 
 <div class="question-meta">
-📅 GATE CSE 2026 | Digital Logic | MSQ | 1 Mark
+📅 GATE CSE 2026 | Set 1 | Digital Logic | MSQ | 1 Mark
 </div>
 
 <h3>Question 1</h3>
 
 <p>
 In a system, numbers are represented using 4-bit two's complement form.
-N1=1011, N2=1101, N3=1010, N4=1001.
+
+<br><br>
+
+N1 = 1011
+
+<br>
+
+N2 = 1101
+
+<br>
+
+N3 = 1010
+
+<br>
+
+N4 = 1001
+
+<br><br>
+
 Which operations result in arithmetic overflow?
 </p>
 
-<div class="option q1" data-answer="A">A) N1 + N2</div>
-<div class="option q1" data-answer="B">B) N2 + N3</div>
-<div class="option q1" data-answer="C">C) N3 − N4</div>
-<div class="option q1" data-answer="D">D) N1 + N4</div>
+<div class="option q1" data-answer="A">
+A) N1 + N2
+</div>
 
-<button onclick="checkQ1()">Check Answer</button>
+<div class="option q1" data-answer="B">
+B) N2 + N3
+</div>
+
+<div class="option q1" data-answer="C">
+C) N3 − N4
+</div>
+
+<div class="option q1" data-answer="D">
+D) N1 + N4
+</div>
+
+<button onclick="checkQ1()">
+Check Answer
+</button>
 
 <div id="result1" class="result"></div>
+
+<div class="theory">
+
+<h4>Concept</h4>
+
+Arithmetic overflow occurs when the result exceeds the representable range.
+
+<br><br>
+
+For 4-bit two's complement:
+
+<br>
+
+Range = -8 to +7
+
+</div>
 
 </div>
 
@@ -125,41 +210,77 @@ Which operations result in arithmetic overflow?
 <div class="question-box">
 
 <div class="question-meta">
-📅 GATE CSE 2026 | Digital Logic | NAT | 1 Mark
+📅 GATE CSE 2026 | Set 1 | Digital Logic | NAT | 1 Mark
 </div>
 
 <h3>Question 2</h3>
 
 <p>
-IEEE 754 single precision representation:
+
+The 32-bit IEEE 754 single precision representation of a number is
+
 <b>0xC2710000</b>
 
 <br><br>
 
-Decimal value = ?
+The decimal value is _______
+
+(round off to two decimal places)
+
 </p>
 
-<input type="text" id="natAnswer">
+<input
+type="text"
+id="natAnswer"
+placeholder="Enter Answer">
 
-<br><br>
+<br>
 
-<button onclick="checkQ2()">Check Answer</button>
+<button onclick="checkQ2()">
+Check Answer
+</button>
 
 <div id="result2" class="result"></div>
 
+<div class="theory">
+
+<h4>Concept</h4>
+
+IEEE 754 Single Precision
+
+<br><br>
+
+1 Bit → Sign
+
+<br>
+
+8 Bits → Exponent
+
+<br>
+
+23 Bits → Mantissa
+
 </div>
 
+</div>
+```
+```html
 <!-- QUESTION 3 -->
 
 <div class="question-box">
 
 <div class="question-meta">
-📅 GATE CSE 2026 | Digital Logic | MCQ | 2 Marks
+📅 GATE CSE 2026 | Set 1 | Digital Logic | MCQ | 2 Marks
 </div>
 
 <h3>Question 3</h3>
 
 <p>
+
+Consider the real valued variables X, Y and Z represented using IEEE 754 single precision floating-point format.
+
+<br><br>
+
 X = 35C00000
 
 <br>
@@ -168,17 +289,59 @@ Y = 34400000
 
 <br><br>
 
-If Z = X + Y, choose correct hexadecimal representation.
+Let Z = X + Y.
+
+<br><br>
+
+Which one of the following is the hexadecimal representation of Z?
+
 </p>
 
-<div class="option q3" data-answer="A">35C80000</div>
-<div class="option q3" data-answer="B">35CC0000</div>
-<div class="option q3" data-answer="C">35E80000</div>
-<div class="option q3" data-answer="D">35EC0000</div>
+<div class="option q3" data-answer="A">
+A) 35C80000
+</div>
 
-<button onclick="checkQ3()">Check Answer</button>
+<div class="option q3" data-answer="B">
+B) 35CC0000
+</div>
+
+<div class="option q3" data-answer="C">
+C) 35E80000
+</div>
+
+<div class="option q3" data-answer="D">
+D) 35EC0000
+</div>
+
+<button onclick="checkQ3()">
+Check Answer
+</button>
 
 <div id="result3" class="result"></div>
+
+<div class="theory">
+
+<h4>Concept</h4>
+
+IEEE Floating Point Addition
+
+<br><br>
+
+1. Align exponents
+
+<br>
+
+2. Add mantissas
+
+<br>
+
+3. Normalize result
+
+<br>
+
+4. Round result
+
+</div>
 
 </div>
 
@@ -187,12 +350,17 @@ If Z = X + Y, choose correct hexadecimal representation.
 <div class="question-box">
 
 <div class="question-meta">
-📅 GATE CSE 2026 | Digital Logic | MSQ | 1 Mark
+📅 GATE CSE 2026 | Set 1 | Digital Logic | MSQ | 1 Mark
 </div>
 
 <h3>Question 4</h3>
 
 <p>
+
+Consider the 8-bit signed integers X, Y and Z represented using sign-magnitude form.
+
+<br><br>
+
 X = 10110100
 
 <br>
@@ -201,27 +369,103 @@ Y = 01001100
 
 <br><br>
 
-Which operations result in overflow?
+Which operations result in arithmetic overflow?
+
 </p>
 
-<div class="option q4" data-answer="A">A) X + Y</div>
-<div class="option q4" data-answer="B">B) X - Y</div>
-<div class="option q4" data-answer="C">C) -X + Y</div>
-<div class="option q4" data-answer="D">D) -X - Y</div>
+<div class="option q4" data-answer="A">
+A) Z = X + Y
+</div>
 
-<button onclick="checkQ4()">Check Answer</button>
+<div class="option q4" data-answer="B">
+B) Z = X − Y
+</div>
+
+<div class="option q4" data-answer="C">
+C) Z = −X + Y
+</div>
+
+<div class="option q4" data-answer="D">
+D) Z = −X − Y
+</div>
+
+<button onclick="checkQ4()">
+Check Answer
+</button>
 
 <div id="result4" class="result"></div>
 
+<div class="theory">
+
+<h4>Concept</h4>
+
+Sign-Magnitude Representation
+
+<br><br>
+
+MSB = Sign Bit
+
+<br>
+
+0 → Positive
+
+<br>
+
+1 → Negative
+
+<br><br>
+
+Range of 8-bit Sign Magnitude
+
+<br>
+
+= -127 to +127
+
 </div>
 
-<!-- COMMENTS -->
+</div>
+
+<!-- TEMPLATE FOR FUTURE QUESTIONS -->
 
 <div class="question-box">
 
-<h3>Discussion & Comments</h3>
+<div class="question-meta">
+📅 GATE CSE YEAR | Set X | Digital Logic | MCQ/MSQ/NAT | 1 or 2 Marks
+</div>
 
-<textarea id="commentBox"></textarea>
+<h3>Question 5</h3>
+
+<p>
+
+Paste next GATE question here
+
+</p>
+
+<!-- Options Here -->
+
+<div id="result5" class="result"></div>
+
+<div class="theory">
+
+<h4>Concept</h4>
+
+Paste theory here
+
+</div>
+
+</div>
+
+<!-- DISCUSSION FOR QUESTIONS 1-10 -->
+
+<div class="question-box">
+
+<h3>Discussion & Comments (Questions 1-10)</h3>
+
+<textarea
+id="commentBox"
+rows="4"
+placeholder="Write your answer, doubt or discussion...">
+</textarea>
 
 <br><br>
 
@@ -234,14 +478,25 @@ Post Comment
 </div>
 ```
 ```html
+<footer>
+<p>© 2027 PracticePaper</p>
+<p>Made for GATE Aspirants ❤️</p>
+</footer>
+
 <script>
 
-/* QUESTION 1 */
+/* ==========================
+   QUESTION 1
+========================== */
 
 document.querySelectorAll(".q1").forEach(option=>{
+
 option.addEventListener("click",()=>{
+
 option.classList.toggle("selected");
+
 });
+
 });
 
 function checkQ1(){
@@ -250,7 +505,9 @@ let selected=[];
 
 document.querySelectorAll(".q1.selected")
 .forEach(item=>{
+
 selected.push(item.dataset.answer);
+
 });
 
 selected.sort();
@@ -261,9 +518,13 @@ if(JSON.stringify(selected)===JSON.stringify(correct)){
 
 document.getElementById("result1").innerHTML=`
 ✅ Correct Answer
+
 <br><br>
+
 🎯 Marks: 1/1
+
 <br><br>
+
 Correct Answer: B and D
 `;
 
@@ -271,13 +532,33 @@ Correct Answer: B and D
 
 document.getElementById("result1").innerHTML=`
 ❌ Wrong Answer
+
 <br><br>
+
 🎯 Marks: 0/1
+
 <br><br>
+
 ✅ Correct Answer: B and D
+
 <br><br>
-N1=-5, N2=-3, N3=-6, N4=-7
+
+N1 = -5
+
+<br>
+
+N2 = -3
+
+<br>
+
+N3 = -6
+
+<br>
+
+N4 = -7
+
 <br><br>
+
 Overflow occurs in B and D.
 `;
 
@@ -285,7 +566,9 @@ Overflow occurs in B and D.
 
 }
 
-/* QUESTION 2 */
+/* ==========================
+   QUESTION 2
+========================== */
 
 function checkQ2(){
 
@@ -297,7 +580,9 @@ if(ans=="-60.25"){
 
 document.getElementById("result2").innerHTML=`
 ✅ Correct Answer
+
 <br><br>
+
 🎯 Marks: 1/1
 `;
 
@@ -305,17 +590,43 @@ document.getElementById("result2").innerHTML=`
 
 document.getElementById("result2").innerHTML=`
 ❌ Wrong Answer
+
 <br><br>
+
 🎯 Marks: 0/1
+
 <br><br>
+
 ✅ Correct Answer: -60.25
+
+<br><br>
+
+IEEE 754 Decoding
+
+<br><br>
+
+Sign = 1
+
+<br>
+
+Exponent = 132
+
+<br>
+
+Mantissa = 1.8828125
+
+<br><br>
+
+Value = -60.25
 `;
 
 }
 
 }
 
-/* QUESTION 3 */
+/* ==========================
+   QUESTION 3
+========================== */
 
 document.querySelectorAll(".q3").forEach(option=>{
 
@@ -337,8 +648,8 @@ document.querySelector(".q3.selected");
 
 if(!selected){
 
-document.getElementById("result3")
-.innerHTML="Select an option";
+document.getElementById("result3").innerHTML=
+"⚠ Select an option";
 
 return;
 
@@ -348,9 +659,13 @@ if(selected.dataset.answer=="B"){
 
 document.getElementById("result3").innerHTML=`
 ✅ Correct Answer
+
 <br><br>
+
 🎯 Marks: 2/2
+
 <br><br>
+
 Correct Answer: 35CC0000
 `;
 
@@ -358,17 +673,43 @@ Correct Answer: 35CC0000
 
 document.getElementById("result3").innerHTML=`
 ❌ Wrong Answer
+
 <br><br>
+
 🎯 Marks: 0/2
+
 <br><br>
+
 ✅ Correct Answer: 35CC0000
+
+<br><br>
+
+IEEE floating-point addition:
+
+<br>
+
+Align exponents
+
+<br>
+
+Add mantissas
+
+<br>
+
+Normalize result
+
+<br>
+
+Convert back to IEEE format
 `;
 
 }
 
 }
 
-/* QUESTION 4 */
+/* ==========================
+   QUESTION 4
+========================== */
 
 document.querySelectorAll(".q4").forEach(option=>{
 
@@ -399,9 +740,13 @@ if(JSON.stringify(selected)===JSON.stringify(correct)){
 
 document.getElementById("result4").innerHTML=`
 ✅ Correct Answer
+
 <br><br>
+
 🎯 Marks: 1/1
+
 <br><br>
+
 Correct Answer: B and C
 `;
 
@@ -409,10 +754,30 @@ Correct Answer: B and C
 
 document.getElementById("result4").innerHTML=`
 ❌ Wrong Answer
+
 <br><br>
+
 🎯 Marks: 0/1
+
 <br><br>
+
 ✅ Correct Answer: B and C
+
+<br><br>
+
+X = -52
+
+<br>
+
+Y = +76
+
+<br><br>
+
+B) -128 → Overflow
+
+<br>
+
+C) +128 → Overflow
 `;
 
 }
@@ -446,7 +811,6 @@ appId:"1:894240086322:web:2a6dd4a3a4e503f715df2b"
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
 window.postComment = async function(){
@@ -457,7 +821,7 @@ document.getElementById("commentBox").value;
 if(text.trim()=="") return;
 
 await addDoc(
-collection(db,"comments"),
+collection(db,"digital-logic-comments"),
 {
 message:text,
 time:Date.now()
@@ -475,24 +839,24 @@ async function loadComments(){
 const commentsDiv =
 document.getElementById("comments");
 
-commentsDiv.innerHTML=
+commentsDiv.innerHTML =
 "Loading comments...";
 
-const snapshot=
+const snapshot =
 await getDocs(
-collection(db,"comments")
+collection(db,"digital-logic-comments")
 );
 
 commentsDiv.innerHTML="";
 
 snapshot.forEach(doc=>{
 
-let div=
+let div =
 document.createElement("div");
 
 div.className="comment";
 
-div.innerHTML=
+div.innerHTML =
 doc.data().message;
 
 commentsDiv.prepend(div);

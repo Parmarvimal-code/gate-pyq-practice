@@ -4,17 +4,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Digital Logic Design - PracticePaper</title>
 
 <style>
 
 body{
-    font-family: Arial, sans-serif;
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    background: #f8f9fa;
+    font-family:Arial, sans-serif;
+    background:#f5f7fb;
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+    line-height:1.6;
 }
 
 header{
@@ -29,6 +29,7 @@ h1{
 .question-box{
     background:white;
     padding:20px;
+    margin-bottom:25px;
     border-radius:10px;
     box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
@@ -39,7 +40,6 @@ h1{
     margin-top:10px;
     border-radius:8px;
     cursor:pointer;
-    transition:0.3s;
 }
 
 .option:hover{
@@ -65,23 +65,9 @@ button:hover{
     opacity:0.9;
 }
 
-#result{
+.result{
     margin-top:15px;
-    font-size:18px;
-    line-height:1.8;
-}
-
-.score-box{
-    margin-top:15px;
-    font-size:18px;
-    font-weight:bold;
-}
-
-textarea{
-    width:100%;
-    margin-top:15px;
-    padding:10px;
-    border-radius:5px;
+    font-size:17px;
 }
 
 .comment{
@@ -91,6 +77,17 @@ textarea{
     margin-top:10px;
 }
 
+textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+
+input[type=number]{
+    padding:10px;
+    width:250px;
+}
+
 footer{
     text-align:center;
     margin-top:30px;
@@ -98,13 +95,14 @@ footer{
 
 </style>
 </head>
-
 <body>
 
 <header>
-<h1>PracticePaper</h1>
+<h1>🎓 PracticePaper</h1>
 <h2>Digital Logic Design</h2>
 </header>
+
+<!-- Question 1 -->
 
 <div class="question-box">
 
@@ -124,47 +122,50 @@ N4 = 1001
 Which of the following operations will result in arithmetic overflow?
 </p>
 
-<div class="option" data-answer="A">
-A) N1 + N2
+<div class="option q1" data-answer="A">A) N1 + N2</div>
+<div class="option q1" data-answer="B">B) N2 + N3</div>
+<div class="option q1" data-answer="C">C) N3 − N4</div>
+<div class="option q1" data-answer="D">D) N1 + N4</div>
+
+<button onclick="checkQ1()">Check Answer</button>
+
+<div id="result1" class="result"></div>
+
 </div>
 
-<div class="option" data-answer="B">
-B) N2 + N3
-</div>
+<!-- Question 2 -->
 
-<div class="option" data-answer="C">
-C) N3 − N4
-</div>
+<div class="question-box">
 
-<div class="option" data-answer="D">
-D) N1 + N4
-</div>
+<h3>Question 2 (NAT | 1 Mark)</h3>
 
-<button onclick="checkAnswer()">
-Check Answer
-</button>
+<p>
+The 32-bit IEEE 754 single precision representation of a number is
+<b>0xC2710000</b>.
+The number in decimal representation is ________
+(rounded off to two decimal places).
+</p>
 
-<div id="result"></div>
-
-<div class="score-box">
-Marks: <span id="score">0</span>/1
-</div>
-
-<hr>
-
-<h3>Comment Your Answer</h3>
-
-<textarea
-id="commentText"
-rows="4"
-placeholder="Write your answer or comment here...">
-</textarea>
+<input type="number" step="0.01" id="natAnswer">
 
 <br>
 
-<button onclick="addComment()">
-Post Comment
-</button>
+<button onclick="checkQ2()">Check Answer</button>
+
+<div id="result2" class="result"></div>
+
+</div>
+
+<!-- Comments -->
+
+<div class="question-box">
+
+<h3>Comment Your Answer</h3>
+
+<textarea id="commentText" rows="4"
+placeholder="Write your answer or comment here..."></textarea>
+
+<button onclick="addComment()">Post Comment</button>
 
 <div id="comments"></div>
 
@@ -176,12 +177,9 @@ Post Comment
 
 <script>
 
-let score = 0;
+/* Question 1 */
 
-const options =
-document.querySelectorAll(".option");
-
-options.forEach(option=>{
+document.querySelectorAll(".q1").forEach(option=>{
 
 option.addEventListener("click",()=>{
 
@@ -191,16 +189,14 @@ option.classList.toggle("selected");
 
 });
 
-function checkAnswer(){
+function checkQ1(){
 
 let selected=[];
 
-document.querySelectorAll(".selected")
+document.querySelectorAll(".q1.selected")
 .forEach(item=>{
 
-selected.push(
-item.getAttribute("data-answer")
-);
+selected.push(item.dataset.answer);
 
 });
 
@@ -208,38 +204,29 @@ selected.sort();
 
 let correct=["B","D"];
 
-if(
-JSON.stringify(selected)
-===
-JSON.stringify(correct)
-){
+if(JSON.stringify(selected)===JSON.stringify(correct)){
 
-document.getElementById("result")
-.innerHTML=
-`
+document.getElementById("result1").innerHTML=`
 ✅ Correct Answer
 
 <br><br>
 
-🎯 Marks: 1/1
+Marks: 1/1
 
 <br><br>
 
 Correct Answer: B, D
 `;
 
-score=1;
-
 }else{
 
-document.getElementById("result")
-.innerHTML=
-`
+document.getElementById("result1").innerHTML=`
+
 ❌ Wrong Answer
 
 <br><br>
 
-🎯 Marks: 0/1
+Marks: 0/1
 
 <br><br>
 
@@ -251,32 +238,142 @@ document.getElementById("result")
 
 <br><br>
 
-N1 = 1011 = -5<br>
-N2 = 1101 = -3<br>
-N3 = 1010 = -6<br>
-N4 = 1001 = -7<br><br>
+N1 = -5
 
-Range of 4-bit two's complement = -8 to +7<br><br>
+<br>
 
-A) -5 + (-3) = -8 → No Overflow<br>
-B) -3 + (-6) = -9 → Overflow ✅<br>
-C) -6 - (-7) = 1 → No Overflow<br>
+N2 = -3
+
+<br>
+
+N3 = -6
+
+<br>
+
+N4 = -7
+
+<br><br>
+
+Range = -8 to +7
+
+<br><br>
+
+A) -5 + (-3) = -8 → No Overflow
+
+<br>
+
+B) -3 + (-6) = -9 → Overflow ✅
+
+<br>
+
+C) -6 - (-7) = 1 → No Overflow
+
+<br>
+
 D) -5 + (-7) = -12 → Overflow ✅
+
 `;
 
-score=0;
 }
 
-document.getElementById("score")
-.innerHTML=score;
+}
+
+/* Question 2 */
+
+function checkQ2(){
+
+let ans=parseFloat(
+document.getElementById("natAnswer").value
+);
+
+if(ans===-60.25){
+
+document.getElementById("result2").innerHTML=`
+
+✅ Correct Answer
+
+<br><br>
+
+Marks: 1/1
+
+`;
+
+}else{
+
+document.getElementById("result2").innerHTML=`
+
+❌ Wrong Answer
+
+<br><br>
+
+Marks: 0/1
+
+<br><br>
+
+✅ Correct Answer: -60.25
+
+<br><br>
+
+<b>Solution:</b>
+
+<br><br>
+
+0xC2710000
+
+<br><br>
+
+Binary:
+
+11000010 01110001 00000000 00000000
+
+<br><br>
+
+Sign Bit = 1
+
+→ Negative Number
+
+<br><br>
+
+Exponent = 10000100₂
+
+= 132
+
+<br>
+
+Actual Exponent = 132 - 127 = 5
+
+<br><br>
+
+Mantissa = 1.1110001₂
+
+= 1.8828125
+
+<br><br>
+
+Value
+
+= -(1.8828125 × 2⁵)
+
+<br>
+
+= -(1.8828125 × 32)
+
+<br>
+
+= -60.25
+
+`;
 
 }
+
+}
+
+/* Comments */
 
 function addComment(){
 
 let text=
-document.getElementById("commentText")
-.value;
+document.getElementById("commentText").value;
 
 if(text.trim()=="") return;
 
@@ -289,8 +386,7 @@ div.innerHTML=text;
 document.getElementById("comments")
 .prepend(div);
 
-document.getElementById("commentText")
-.value="";
+document.getElementById("commentText").value="";
 
 }
 

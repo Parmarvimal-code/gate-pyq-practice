@@ -1,5 +1,8 @@
 ```css
-/* Reset */
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -17,12 +20,19 @@ body{
     line-height:1.6;
 }
 
-/* Links */
+/* =========================
+   LINKS
+========================= */
+
 a{
     text-decoration:none;
+    color:inherit;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
+
 header{
     background:#0f172a;
     color:white;
@@ -34,15 +44,20 @@ header{
 }
 
 header h1{
+    text-align:center;
+    font-size:34px;
     margin-bottom:10px;
-    font-size:32px;
 }
 
-/* Navigation */
+/* =========================
+   NAVIGATION
+========================= */
+
 nav{
     display:flex;
     flex-wrap:wrap;
-    gap:15px;
+    justify-content:center;
+    gap:20px;
 }
 
 nav a{
@@ -55,7 +70,10 @@ nav a:hover{
     color:#60a5fa;
 }
 
-/* Hero Section */
+/* =========================
+   HERO SECTION
+========================= */
+
 .hero{
     background:linear-gradient(135deg,#0f172a,#2563eb);
     color:white;
@@ -64,17 +82,20 @@ nav a:hover{
 }
 
 .hero h2{
-    font-size:50px;
+    font-size:48px;
     margin-bottom:15px;
 }
 
 .hero p{
     font-size:20px;
-    max-width:700px;
+    max-width:800px;
     margin:auto;
 }
 
-/* Buttons */
+/* =========================
+   BUTTONS
+========================= */
+
 .button{
     display:inline-block;
     margin:15px 10px;
@@ -87,11 +108,14 @@ nav a:hover{
 }
 
 .button:hover{
-    transform:translateY(-3px);
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transform:translateY(-4px);
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* Search Box */
+/* =========================
+   SEARCH BOX
+========================= */
+
 .search-section{
     text-align:center;
     margin:40px 0;
@@ -112,25 +136,35 @@ nav a:hover{
     border:2px solid #2563eb;
 }
 
-/* Section Heading */
+/* =========================
+   SECTION TITLES
+========================= */
+
 .section-title{
     text-align:center;
     color:#1e3a8a;
     margin-top:50px;
-    margin-bottom:20px;
+    margin-bottom:25px;
     font-size:32px;
 }
 
-/* Cards Grid */
+/* =========================
+   CARD GRID
+========================= */
+
 .cards-container{
     width:90%;
     margin:auto;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
+    margin-bottom:30px;
 }
 
-/* Cards */
+/* =========================
+   CARDS
+========================= */
+
 .card{
     background:white;
     padding:22px;
@@ -145,17 +179,89 @@ nav a:hover{
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 12px 30px rgba(0,0,0,0.18);
 }
 
-/* Footer */
+/* =========================
+   QUESTION PAGE
+========================= */
+
+.question-box{
+    background:white;
+    width:90%;
+    max-width:1000px;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.option{
+    border:1px solid #ddd;
+    padding:15px;
+    margin-top:10px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:#f3f4f6;
+}
+
+.option.selected{
+    background:#2563eb;
+    color:white;
+}
+
+.question-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.question-btn:hover{
+    opacity:0.9;
+}
+
+/* =========================
+   COMMENTS
+========================= */
+
+textarea{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.comment{
+    background:#eef4ff;
+    border-left:5px solid #2563eb;
+    padding:10px;
+    margin-top:10px;
+    border-radius:6px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
     background:#0f172a;
     color:white;
     text-align:center;
     padding:35px;
     margin-top:60px;
+}
+
+footer p{
+    margin:5px 0;
 }
 
 footer a{
@@ -166,15 +272,14 @@ footer a:hover{
     text-decoration:underline;
 }
 
-/* Mobile Responsive */
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:768px){
 
     header{
         text-align:center;
-    }
-
-    nav{
-        justify-content:center;
     }
 
     .hero{
@@ -199,6 +304,10 @@ footer a:hover{
 
     .section-title{
         font-size:26px;
+    }
+
+    nav{
+        gap:12px;
     }
 }
 ```

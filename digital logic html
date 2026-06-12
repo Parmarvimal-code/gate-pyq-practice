@@ -258,3 +258,151 @@ document.getElementById("commentText")
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>GATE MSQ Question</title>
+
+<style>
+body{
+    font-family:Arial;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.option{
+    border:1px solid #ccc;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.option.selected{
+    background:#007bff;
+    color:white;
+}
+
+button{
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.comment{
+    border-left:4px solid #007bff;
+    background:#f5f5f5;
+    padding:10px;
+    margin-top:10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Question 2 (MSQ | 1 Mark)</h2>
+
+<p>
+In a system, numbers are represented using 4-bit two's complement form.
+Consider four numbers N1=1011, N2=1101, N3=1010 and N4=1001.
+Which of the following operations will result in arithmetic overflow?
+</p>
+
+<div class="option" data-value="A">A) N1 + N2</div>
+<div class="option" data-value="B">B) N2 + N3</div>
+<div class="option" data-value="C">C) N3 − N4</div>
+<div class="option" data-value="D">D) N1 + N4</div>
+
+<br>
+
+<button onclick="checkAnswer()">Check Answer</button>
+
+<h3 id="result"></h3>
+
+<h3>Score: <span id="score">0</span>/1</h3>
+
+<hr>
+
+<h3>Comment Your Answer</h3>
+
+<textarea id="commentText"
+rows="4"
+cols="60"
+placeholder="Write your answer..."></textarea>
+
+<br><br>
+
+<button onclick="addComment()">Post Comment</button>
+
+<div id="comments"></div>
+
+<script>
+
+let score = 0;
+
+document.querySelectorAll('.option').forEach(option => {
+
+option.addEventListener('click', function(){
+
+this.classList.toggle('selected');
+
+});
+
+});
+
+function checkAnswer(){
+
+let selected=[];
+
+document.querySelectorAll('.selected').forEach(opt=>{
+
+selected.push(opt.dataset.value);
+
+});
+
+selected.sort();
+
+let correct=["B","D"];
+
+if(JSON.stringify(selected)===JSON.stringify(correct)){
+
+document.getElementById("result").innerHTML=
+"✅ Correct Answer";
+
+score=1;
+
+}else{
+
+document.getElementById("result").innerHTML=
+"❌ Wrong Answer";
+
+score=0;
+}
+
+document.getElementById("score").innerHTML=score;
+}
+
+function addComment(){
+
+let text=document.getElementById("commentText").value;
+
+if(text.trim()=="") return;
+
+let div=document.createElement("div");
+
+div.className="comment";
+
+div.innerHTML=text;
+
+document.getElementById("comments").prepend(div);
+
+document.getElementById("commentText").value="";
+}
+</script>
+
+</body>
+</html>

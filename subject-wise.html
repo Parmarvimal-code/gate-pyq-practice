@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <nav>
-<a href="index.html">Home</a>
-<a href="cse.html">GATE CSE</a>
-<a href="topic-wise.html">Topic Wise</a>
-<a href="year-wise.html">Year Wise</a>
-<a href="mock.html">Mock Tests</a>
-<a href="notes.html">Notes</a>
-</nav>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subject Wise Practice - PracticePaper</title>
@@ -33,6 +25,20 @@ padding:20px;
 text-align:center;
 }
 
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
 .container{
 max-width:1200px;
 margin:auto;
@@ -47,9 +53,9 @@ color:#0d6efd;
 
 .grid{
 display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
+margin-bottom:50px;
 }
 
 .card{
@@ -92,12 +98,23 @@ color:white;
 <body>
 
 <header>
+
 <h1>📚 Subject Wise Practice</h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cse.html">GATE CSE</a>
+<a href="topic-wise.html">Topic Wise</a>
+<a href="year-wise.html">Year Wise</a>
+<a href="mock.html">Mock Tests</a>
+<a href="notes.html">Notes</a>
+</nav>
+
 </header>
 
 <div class="container">
 
-<h2>GATE CSE Subjects</h2>
+<h2>💻 GATE CSE Subjects</h2>
 
 <div class="grid">
 
@@ -112,7 +129,7 @@ color:white;
 </div>
 
 <div class="card">
-<h3>COA</h3>
+<h3>Computer Organization & Architecture</h3>
 <a href="coa.html">Open</a>
 </div>
 
@@ -155,7 +172,10 @@ color:white;
 <h3>General Aptitude</h3>
 <a href="aptitude.html">Open</a>
 </div>
-<h2 class="section-title">⚙️ Instrumentation Engineering Subjects</h2>
+
+</div>
+
+<h2>⚙️ Instrumentation Engineering Subjects</h2>
 
 <div class="grid">
 
@@ -204,4 +224,28 @@ color:white;
 <a href="communication.html">Open</a>
 </div>
 
+<div class="card">
+<h3>Industrial Instrumentation</h3>
+<a href="industrial-instrumentation.html">Open</a>
 </div>
+
+<div class="card">
+<h3>Microprocessors</h3>
+<a href="microprocessor.html">Open</a>
+</div>
+
+<div class="card">
+<h3>General Aptitude</h3>
+<a href="aptitude.html">Open</a>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2027 PracticePaper | Made for GATE Aspirants ❤️
+</footer>
+
+</body>
+</html>
